@@ -30,7 +30,7 @@ app.post("/", (req, ress) => {
     .then(function (response) {
       const url = response.data.profile_pic_url_hd;
       https.get(url, (res) => {
-        const path = "downloaded-image.jpg";
+        const path = __dirname + "/downloaded-image.jpg";
         const writeStream = fs.createWriteStream(path);
 
         res.pipe(writeStream);
